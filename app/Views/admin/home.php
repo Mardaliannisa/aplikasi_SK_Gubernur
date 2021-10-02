@@ -61,8 +61,29 @@
                                     data-unit_pengelola="<?= $row['unit_pengelola'];?>"
                                     data-tanggal="<?= $row['tanggal'];?>" data-tentang="<?= $row['tentang'];?>"
                                     data-file_surat="<?= $row['file_surat'];?>"><i class="fas fa-edit"></i></a></td>
-                            <td><a href="home/hapus/<?=$row['id']?>"><i class="fas fa-trash-alt"></i></a></td>
+                            <td><a href="home/hapus/<?=$row['id']?>" data-target="#hapus" data-toggle="modal"><i
+                                        class="fas fa-trash-alt"></i></a></td>
                         </tr>
+                        <!-- Logout Modal-->
+                        <div class="modal fade" id="hapus" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Menghapus File?</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">Tekan Tombol Delete Untuk Menghapus Secara Permanent.</div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" type="button"
+                                            data-dismiss="modal">Cancel</button>
+                                        <a class="btn btn-primary" href="home/hapus/<?=$row['id']?>">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <?php endforeach;?>
                     </tbody>
                 </table>
@@ -113,6 +134,7 @@
                 </div>
             </form>
             <!-- End Modal Edit Product-->
+
         </div>
     </div>
 
