@@ -248,12 +248,14 @@
         $('.btn-edit').on('click', function() {
             // get data from button edit
             const id = $(this).data('id');
+            const nomor_surat = $(this).data('nomor_surat');
             const unit_pengelola = $(this).data('unit_pengelola');
             const tanggal = $(this).data('tanggal');
             const tentang = $(this).data('tentang');
             const file_surat = $(this).data('file_surat');
             // Set data to Form Edit
             $('.id').val(id);
+            $('.nomor_surat').val(nomor_surat);
             $('.unit_pengelola').val(unit_pengelola);
             $('.tanggal').val(tanggal);
             $('.tentang').val(tentang);

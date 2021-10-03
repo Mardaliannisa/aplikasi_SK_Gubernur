@@ -33,11 +33,17 @@ class Home extends BaseController
         ]);
  
         if ($validation == FALSE) {
-            return redirect()->to(base_url('tambah_data'))->with('gagal', 'Data Format Salah');
+            $data = array(
+                'nomor_surat' => $this->request->getPost('nomor_surat'),
+                'unit_pengelola'  => $this->request->getPost('unit_pengelola'),
+                'tanggal' => $this->request->getPost('tanggal'),
+                'tentang'  => $this->request->getPost('tentang'),
+            );
         } else {
             $upload = $this->request->getFile('file_surat');
             $upload->move(WRITEPATH . '../public/surat/');
         $data = array(
+            'nomor_surat' => $this->request->getPost('nomor_surat'),
             'unit_pengelola'  => $this->request->getPost('unit_pengelola'),
             'tanggal' => $this->request->getPost('tanggal'),
             'tentang' => $this->request->getPost('tentang'),
@@ -60,6 +66,7 @@ class Home extends BaseController
             ]);
             if ($validation == FALSE) {
             $data = array(
+                'nomor_surat'  => $this->request->getPost('nomor_surat'),
                 'unit_pengelola'  => $this->request->getPost('unit_pengelola'),
                 'tanggal' => $this->request->getPost('tanggal'),
                 'tentang'  => $this->request->getPost('tentang'),
@@ -72,6 +79,7 @@ class Home extends BaseController
                 $upload = $this->request->getFile('file_surat');
                 $upload->move(WRITEPATH . '../public/surat/');
             $data = array(
+                'nomor_surat'  => $this->request->getPost('nomor_surat'),
                 'unit_pengelola'  => $this->request->getPost('unit_pengelola'),
                 'tanggal' => $this->request->getPost('tanggal'),
                 'tentang'  => $this->request->getPost('tentang'),

@@ -12,6 +12,11 @@
     </div>
     <?php endif; ?>
     <form method="post" action="<?= base_url();?>/home/tambah_surat" enctype="multipart/form-data">
+    <div class="form-group">
+            <label for="exampleInputEmail1">Nomor Surat</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Masukan Nomor Surat" name="nomor_surat">
+        </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Unit Pengelola</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -28,7 +33,7 @@
                 name="tentang">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">File Suart</label>
+            <label for="exampleInputPassword1">File Surat</label>
             <input type="file" class="form-control" id="exampleInputPassword1" placeholder="Masukan Tentang"
                 name="file_surat">
         </div>

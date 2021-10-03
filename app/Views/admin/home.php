@@ -34,6 +34,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Nomor Surat</th>
                             <th>Unit Pengelola</th>
                             <th>Tanggal</th>
                             <th>Tentang</th>
@@ -48,6 +49,7 @@
                             <?php $i=1 ?>
                             <?php foreach($data_surat as $row):?>
                             <td><?= $i++?></td>
+                            <td><?= $row['nomor_surat'] ?></td>
                             <td><?= $row['unit_pengelola'] ?></td>
                             <td><?= $row['tanggal'] ?></td>
                             <td><?= $row['tentang'] ?></td>
@@ -58,6 +60,7 @@
                             </td>
 
                             <td><a href="#" class="btn btn-info btn-sm btn-edit" data-id="<?= $row['id'];?>"
+                                    data-nomor_surat="<?= $row['nomor_surat'];?>"
                                     data-unit_pengelola="<?= $row['unit_pengelola'];?>"
                                     data-tanggal="<?= $row['tanggal'];?>" data-tentang="<?= $row['tentang'];?>"
                                     data-file_surat="<?= $row['file_surat'];?>"><i class="fas fa-edit"></i></a></td>
@@ -102,26 +105,31 @@
                             </div>
                             <div class="modal-body">
 
+                            <div class="form-group">
+                                    <label>Nomor Surat</label>
+                                    <input type="text" class="form-control nomor_surat" name="nomor_surat"
+                                        placeholder="Nomor Surat">
+                                </div>
                                 <div class="form-group">
                                     <label>Unit Pengelola</label>
                                     <input type="text" class="form-control unit_pengelola" name="unit_pengelola"
-                                        placeholder="Product Name">
+                                        placeholder="Unit Pengelola">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Tanggal</label>
                                     <input type="date" class="form-control tanggal" name="tanggal"
-                                        placeholder="Product Price">
+                                        placeholder="Tanggal">
                                 </div>
                                 <div class="form-group">
                                     <label>Tentang</label>
                                     <input type="text" class="form-control tentang" name="tentang"
-                                        placeholder="Product Price">
+                                        placeholder="Tentang">
                                 </div>
                                 <div class="form-group">
                                     <label>File Surat</label>
                                     <input type="file" class="form-control" name="file_surat"
-                                        placeholder="Product Price">
+                                        placeholder="File Surat">
                                 </div>
                             </div>
                             <div class="modal-footer">
