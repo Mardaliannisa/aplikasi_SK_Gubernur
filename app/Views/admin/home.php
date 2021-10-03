@@ -13,14 +13,14 @@
     <?php endif; ?>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Selamat Datang <?= session()->get('nama')?></h1>
-            <p class="lead">Sistem Database Surat Keputusan Gubernur.</p>
+            <h1 class="display-4">Selamat Datang  <?= session()->get('nama')?></h1>
+            <p class="lead">Sistem Informasi Surat Keputusan Gubernur.</p>
         </div>
     </div>
     <!-- Page Heading -->
 
     <h1 class="h3 mb-2 text-gray-800">Table Data Surat</h1>
-    <p class="mb-4">Table ini menampilkan data surat keputusan yang terdiri dari Unit Pengelola, Tanggal
+    <p class="mb-4">Table ini menampilkan data surat keputusan yang terdiri dari Nomor Surat, Unit Pengelola, Tanggal
         Tentang, File, Edit, Delete.</p>
 
     <!-- DataTales Example -->
