@@ -14,7 +14,20 @@ class Home extends BaseController
             session()->setFlashdata('error', 'Terdeteksi Serangan');
             return redirect()->to(base_url('login'));
         }else if(!empty(session()->get('nama'))){
-            $data['data_surat'] = $model->getDataSurat();
+            $keyword = $this->request->getVar('keyword');
+            $order = $this->request->getVar('order');
+            $by = $this->request->getVar('by');
+            if($keyword){
+                $data['data_surat'] = $model->search($keyword)->paginate(5, 'data_surat');
+            }else if($order){
+                $data['data_surat'] = $model->order($order, $by)->paginate(5, 'data_surat');
+            }
+            else{
+                $data['data_surat'] = $model->paginate(5, 'data_surat');
+            }
+            $data['currentPage'] = $this->request->getVar('page_data_surat') ? $this->request->getVar('page_data_surat') : 1;
+            
+            $data['pager'] = $model->pager;
             return view('admin/home', $data);
         }
     }
@@ -98,7 +111,7 @@ class Home extends BaseController
         $file_surat = $dt->file_surat;
         $path = '../public/surat/';
         @unlink($path.$file_surat);
-        return redirect()->to(base_url('home'))->with('sukses', 'Data Berhasil Dihapus');
+        return redirect()->to(base_url('home'))->with('sukses', 'Data Berhasil Di hapus');
 
     }
 

@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -91,12 +91,12 @@
                                 <!-- Topbar Search -->
                                 <form
                                     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                    <div class="input-group">
+                                    <div class="input-group" action="" method="POST">
                                         <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
+                                            placeholder="Masukan Keyword Pencarian.." aria-label="Search"
+                                            aria-describedby="basic-addon2" name="keyword">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
+                                            <button class="btn btn-primary" type="submit" name="submit">
                                                 <i class="fas fa-search fa-sm"></i>
                                             </button>
                                         </div>
@@ -107,17 +107,25 @@
                                 <!-- Topbar Search -->
                                 <form
                                     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                    <div class="input-group">
+                                    <div class="input-group" method="post">
                                         <div class="col-auto">
-                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                                <option selected>Unit Pelaksana</option>
-                                                <option value="1">Tanggal</option>
-                                                <option value="2">Tentang</option>
-                                                <option value="3">File</option>
+                                            <select name="order" class="custom-select mr-sm-2"
+                                                id="inlineFormCustomSelect">
+                                                <option value="">Pilih Urutan</option>
+                                                <option value="nomor_surat">Nomor Surat</option>
+                                                <option value="unit_pengelola">Unit Pengelola</option>
+                                                <option value="tanggal">Tanggal</option>
+                                                <option value="tentang">Tentang</option>
+                                                <option value="file_surat">File</option>
+                                            </select>
+                                            <select name="by" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                <option value="">Urutan</option>
+                                                <option value="ASC">Urutan Naik</option>
+                                                <option value="DESC">Urutan Menurun</option>
                                             </select>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
+                                            <button class="btn btn-primary" type="submit">
                                                 <i class="fas fa-filter fa-sm"></i>
                                             </button>
                                         </div>
@@ -166,7 +174,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="<?= base_url(); ?>/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -239,30 +247,31 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url(); ?>/js/sb-admin-2.min.js"></script>
-   
+
 </body>
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        // get Edit Product
-        $('.btn-edit').on('click', function() {
-            // get data from button edit
-            const id = $(this).data('id');
-            const nomor_surat = $(this).data('nomor_surat');
-            const unit_pengelola = $(this).data('unit_pengelola');
-            const tanggal = $(this).data('tanggal');
-            const tentang = $(this).data('tentang');
-            const file_surat = $(this).data('file_surat');
-            // Set data to Form Edit
-            $('.id').val(id);
-            $('.nomor_surat').val(nomor_surat);
-            $('.unit_pengelola').val(unit_pengelola);
-            $('.tanggal').val(tanggal);
-            $('.tentang').val(tentang);
-            $('.file_surat').val(file_surat).trigger('change');
-            // Call Modal Edit
-            $('#editModal').modal('show');
-        });
+    // get Edit Product
+    $('.btn-edit').on('click', function() {
+        // get data from button edit
+        const id = $(this).data('id');
+        const nomor_surat = $(this).data('nomor_surat');
+        const unit_pengelola = $(this).data('unit_pengelola');
+        const tanggal = $(this).data('tanggal');
+        const tentang = $(this).data('tentang');
+        const file_surat = $(this).data('file_surat');
+        // Set data to Form Edit
+        $('.id').val(id);
+        $('.nomor_surat').val(nomor_surat);
+        $('.unit_pengelola').val(unit_pengelola);
+        $('.tanggal').val(tanggal);
+        $('.tentang').val(tentang);
+        $('.file_surat').val(file_surat).trigger('change');
+        // Call Modal Edit
+        $('#editModal').modal('show');
     });
-    </script>
+});
+</script>
+
 </html>

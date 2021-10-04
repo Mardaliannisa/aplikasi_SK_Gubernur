@@ -46,7 +46,7 @@
                     <tbody>
 
                         <tr>
-                            <?php $i=1 ?>
+                            <?php $i=1 + (5 * ($currentPage - 1)) ?>
                             <?php foreach($data_surat as $row):?>
                             <td><?= $i++?></td>
                             <td><?= $row['nomor_surat'] ?></td>
@@ -90,6 +90,7 @@
                         <?php endforeach;?>
                     </tbody>
                 </table>
+                <?= $pager->links('data_surat', 'surat_pagination'); ?>
             </div>
             <!-- Modal Edit Product-->
             <form action="/home/edit_surat" method="post" enctype="multipart/form-data">
