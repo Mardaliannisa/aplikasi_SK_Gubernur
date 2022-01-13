@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Models\SuratModel;
 class Home extends BaseController
 {
-    public function index()
+    public function admin()
     {
         $data = [
             'title' => 'Aplikasi | SK Gubernur - Home'
@@ -17,11 +17,15 @@ class Home extends BaseController
             $keyword = $this->request->getVar('keyword');
             $order = $this->request->getVar('order');
             $by = $this->request->getVar('by');
+            $start_date = $this->request->getVar('start_date');
+            $end_date = $this->request->getVar('end_date');
             if($keyword){
                 $data['data_surat'] = $model->search($keyword)->paginate(5, 'data_surat');
             }else if($order){
                 $data['data_surat'] = $model->order($order, $by)->paginate(5, 'data_surat');
-            }
+            }else if($start_date){
+                $data['data_surat'] = $model->filter_tahun($start_date, $end_date)->paginate(5, 'data_surat');
+            }   
             else{
                 $data['data_surat'] = $model->paginate(5, 'data_surat');
             }
@@ -30,6 +34,48 @@ class Home extends BaseController
             $data['pager'] = $model->pager;
             return view('admin/home', $data);
         }
+    }
+    public function pegawai(){
+        $data = [
+            'title' => 'Aplikasi | SK Gubernur - Home'
+        ];
+        $model = new SuratModel();
+        if(empty(session()->get('nama'))){
+            session()->setFlashdata('error', 'Terdeteksi Serangan');
+            return redirect()->to(base_url('login'));
+        }else if(!empty(session()->get('nama'))){
+            $keyword = $this->request->getVar('keyword');
+            $order = $this->request->getVar('order');
+            $by = $this->request->getVar('by');
+            $start_date = $this->request->getVar('start_date');
+            $end_date = $this->request->getVar('end_date');
+            if($keyword){
+                $data['data_surat'] = $model->search($keyword)->paginate(5, 'data_surat');
+            }else if($order){
+                $data['data_surat'] = $model->order($order, $by)->paginate(5, 'data_surat');
+            }else if($start_date){
+                $data['data_surat'] = $model->filter_tahun($start_date, $end_date)->paginate(5, 'data_surat');
+            }
+            else{
+                $data['data_surat'] = $model->paginate(5, 'data_surat');
+            }
+            $data['currentPage'] = $this->request->getVar('page_data_surat') ? $this->request->getVar('page_data_surat') : 1;
+            
+            $data['pager'] = $model->pager;
+            return view('pegawai/home', $data);
+        }
+    }
+
+    public function pegawai_filter_tahun($start_date, $end_date){
+        $data = [
+            'title' => 'Aplikasi | SK Gubernur - Home'
+        ];
+        $model = new SuratModel();
+        $data['data_surat'] = $model->filter_tahun($start_date, $end_date)->paginate(5, 'data_surat');
+        $data['currentPage'] = $this->request->getVar('page_data_surat') ? $this->request->getVar('page_data_surat') : 1;
+        $data['pager'] = $model->pager;
+        return view('pegawai/home', $data);
+
     }
     public function halaman_tambah(){
         $data = [

@@ -35,7 +35,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Administrator</div>
+                <div class="sidebar-brand-text mx-3">Pegawai</div>
             </a>
 
             <!-- Divider -->
@@ -43,15 +43,16 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url()?>/home">
+                <a class="nav-link" href="<?= base_url()?>/home/pegawai">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+
+             <!-- Nav Item - Utilities Collapse Menu -->
+             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
@@ -60,30 +61,21 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item"
-                            href="<?= base_url()?>/home/pegawai_filter_tahun/2016-01-01/2016-12-31">2016</a>
+                        <a class="collapse-item" href="<?= base_url()?>/home/pegawai_filter_tahun/2016-01-01/2016-12-31">2016</a>
                         <a class="collapse-item" href="utilities-border.html">2017</a>
                         <a class="collapse-item" href="utilities-animation.html">2018</a>
                         <a class="collapse-item" href="utilities-other.html">2019</a>
                         <a class="collapse-item" href="utilities-other.html">2020</a>
-                        <a class="collapse-item"
-                            href="<?= base_url()?>/home/pegawai_filter_tahun/2021-01-01/2021-12-31">2021</a>
+                        <a class="collapse-item" href="<?= base_url()?>/home/pegawai_filter_tahun/2021-01-01/2021-12-31">2021</a>
                     </div>
                 </div>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url()?>/tambah_data">
-                    <i class="fas fa-plus"></i>
-                    <span>Tambah Data</span></a>
-            </li>
+       
 
 
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -155,6 +147,9 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="row">
+                        
+                        </div>
                     </div>
 
 
@@ -195,8 +190,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span
-                                    class="mr-2 d-none d-lg-inline text-gray-600 small"><?= session()->get('user_level_name')?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= session()->get('user_level_name')?></span>
                                 <img class="img-profile rounded-circle" src="<?= base_url(); ?>/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->

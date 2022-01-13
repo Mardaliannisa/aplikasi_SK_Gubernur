@@ -55,4 +55,11 @@ class SuratModel extends Model
         $query->orderBy($order, $by ? $by : 'ASC');
         return $query;
     }
+
+    public function filter_tahun($start_date, $end_date)
+    {
+        $query =$this->table('data_surat');
+        $query = $this->where('tanggal BETWEEN "'. date('Y-m-d', strtotime($start_date)). '" and "'. date('Y-m-d', strtotime($end_date)).'"');
+        return $query;
+    }
 }

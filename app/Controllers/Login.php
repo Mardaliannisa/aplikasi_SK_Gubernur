@@ -18,25 +18,41 @@ class Login extends BaseController
         $users = new UsersModel();
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
-        $dataUser = $users->where([
-            'username' => $username,
-        ])->first();
+        $dataUser = $users->cek_user($username);
+    
         if ($dataUser) {
-            if ($password == $dataUser->password) {
-                session()->set([
-                    'username' => $dataUser->username,
-                    'nama' => $dataUser->nama,
-                    'sukses' => 'Berhasil',
-                    'logged_in' => TRUE
-                ]);
-                session()->setFlashdata('sukses', 'Berhasil Login, Selamat Datang');
-                return redirect()->to(base_url('home'));
-            } else {
-                session()->setFlashdata('error', 'Username & Password Salah');
-                return redirect()->back();
-            }
+                if ($password == $dataUser->password) {
+                    if($dataUser->id_user_level == 1){
+                        session()->set([
+                            'username' => $dataUser->username,
+                            'nama' => $dataUser->nama,
+                            'user_level_name' => $dataUser->user_level_name,
+                            'sukses' => 'Berhasil',
+                            'logged_in' => TRUE
+                        ]);
+                        session()->setFlashdata('sukses', 'Berhasil Login, Selamat Datang');
+                        return redirect()->to(base_url('home/admin'));
+                    }else if($dataUser->id_user_level == 2){
+                        session()->set([
+                            'username' => $dataUser->username,
+                            'nama' => $dataUser->nama,
+                            'user_level_name' => $dataUser->user_level_name,
+                            'sukses' => 'Berhasil',
+                            'logged_in' => TRUE
+                        ]);
+                        session()->setFlashdata('sukses', 'Berhasil Login, Selamat Datang');
+                        return redirect()->to(base_url('home/pegawai'));
+                    }else{
+                        session()->setFlashdata('error', 'Anda belum memiliki hak akses !');
+                    return redirect()->back();
+                    }
+                    
+                } else {
+                    session()->setFlashdata('error', 'Username & Password Salah');
+                    return redirect()->back();
+                } 
         } else {
-            session()->setFlashdata('error', 'Username & Password Salah');
+            session()->setFlashdata('error', 'Anda Belum Terdaftar !');
             return redirect()->back();
         }
     }
