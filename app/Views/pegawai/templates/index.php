@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>/home">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>/home/pegawai">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -61,12 +61,12 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= base_url()?>/home/pegawai_filter_tahun/2016-01-01/2016-12-31">2016</a>
+                        <a class="collapse-item" href="<?= base_url()?>/home/pegawai_filter_tahun_pegawai/2016-01-01/2016-12-31">2016</a>
                         <a class="collapse-item" href="utilities-border.html">2017</a>
                         <a class="collapse-item" href="utilities-animation.html">2018</a>
                         <a class="collapse-item" href="utilities-other.html">2019</a>
                         <a class="collapse-item" href="utilities-other.html">2020</a>
-                        <a class="collapse-item" href="<?= base_url()?>/home/pegawai_filter_tahun/2021-01-01/2021-12-31">2021</a>
+                        <a class="collapse-item" href="<?= base_url()?>/home/pegawai_filter_tahun_pegawai/2021-01-01/2021-12-31">2021</a>
                     </div>
                 </div>
             </li>

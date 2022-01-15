@@ -66,7 +66,7 @@ class Home extends BaseController
         }
     }
 
-    public function pegawai_filter_tahun($start_date, $end_date){
+    public function pegawai_filter_tahun_pegawai($start_date, $end_date){
         $data = [
             'title' => 'Aplikasi | SK Gubernur - Home'
         ];
@@ -77,6 +77,18 @@ class Home extends BaseController
         return view('pegawai/home', $data);
 
     }
+
+    public function pegawai_filter_tahun_admin($start_date, $end_date){
+        $data = [
+            'title' => 'Aplikasi | SK Gubernur - Home'
+        ];
+        $model = new SuratModel();
+        $data['data_surat'] = $model->filter_tahun($start_date, $end_date)->paginate(5, 'data_surat');
+        $data['currentPage'] = $this->request->getVar('page_data_surat') ? $this->request->getVar('page_data_surat') : 1;
+        $data['pager'] = $model->pager;
+        return view('admin/home', $data);
+    }
+
     public function halaman_tambah(){
         $data = [
             'title' => 'Aplikasi | SK Gubernur - Tambah Data'
