@@ -122,7 +122,7 @@ class Home extends BaseController
         );
         }
         $model->SimpanSurat($data);
-        return redirect()->to(base_url('home'))->with('sukses', 'Data Berhasil di Simpan');
+        return redirect()->to(base_url('home/admin'))->with('sukses', 'Data Berhasil di Simpan');
        
     }
 
@@ -158,7 +158,7 @@ class Home extends BaseController
             );
             }
             $model->editData($id,$data);
-            return redirect()->to(base_url('home'))->with('sukses', 'Data Berhasil di edit');
+            return redirect()->to(base_url('home/admin'))->with('sukses', 'Data Berhasil di edit');
     }
 
     public function hapus($id)
@@ -169,7 +169,7 @@ class Home extends BaseController
         $file_surat = $dt->file_surat;
         $path = '../public/surat/';
         @unlink($path.$file_surat);
-        return redirect()->to(base_url('home'))->with('sukses', 'Data Berhasil Di hapus');
+        return redirect()->to(base_url('home/admin'))->with('sukses', 'Data Berhasil Di hapus');
 
     }
 

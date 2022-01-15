@@ -101,7 +101,7 @@
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="button"
                                             data-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-primary" href="home/hapus/<?=$row['id']?>">Delete</a>
+                                        <a class="btn btn-primary" href="hapus/<?=$row['id']?>">Delete</a>
                                     </div>
                                 </div>
                             </div>
