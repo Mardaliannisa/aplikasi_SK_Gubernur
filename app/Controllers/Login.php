@@ -31,7 +31,7 @@ class Login extends BaseController
                             'logged_in' => TRUE
                         ]);
                         session()->setFlashdata('sukses', 'Berhasil Login, Selamat Datang');
-                        return redirect()->to(base_url('home/admin'));
+                        return redirect()->to(base_url('home/admin_index'));
                     }else if($dataUser->id_user_level == 2){
                         session()->set([
                             'username' => $dataUser->username,
@@ -41,7 +41,7 @@ class Login extends BaseController
                             'logged_in' => TRUE
                         ]);
                         session()->setFlashdata('sukses', 'Berhasil Login, Selamat Datang');
-                        return redirect()->to(base_url('home/pegawai'));
+                        return redirect()->to(base_url('home/pegawai_index'));
                     }else{
                         session()->setFlashdata('error', 'Anda belum memiliki hak akses !');
                     return redirect()->back();
