@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\SuratModel;
 class Home extends BaseController
 {
+
     public function admin()
     {
         $data = [
@@ -35,6 +36,25 @@ class Home extends BaseController
             return view('admin/home', $data);
         }
     }
+
+    public function admin_index()
+    {
+        $data = [
+            'title' => 'Aplikasi | SK Gubernur - Home'
+        ];
+       
+            return view('admin/dashboard', $data);
+       
+    }
+
+    public function pegawai_index(){
+        $data = [
+            'title' => 'Aplikasi | SK Gubernur - Home'
+        ];
+            return view('pegawai/dashboard', $data);
+        
+    }
+
     public function pegawai(){
         $data = [
             'title' => 'Aplikasi | SK Gubernur - Home'
@@ -65,6 +85,7 @@ class Home extends BaseController
             return view('pegawai/home', $data);
         }
     }
+
 
     public function pegawai_filter_tahun_pegawai($start_date, $end_date){
         $data = [

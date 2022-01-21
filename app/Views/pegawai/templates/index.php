@@ -37,6 +37,13 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">Pegawai</div>
             </a>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url()?>/home/pegawai_index">
+                    <i class="fa fa-home fa-fw"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <hr class="sidebar-divider my-0">
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -45,8 +52,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url()?>/home/pegawai">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Data Surat</span></a>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
